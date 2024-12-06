@@ -1,4 +1,4 @@
-# Развертывание PostgreSQL и pgAdmin (GUI)
+# Развертывание PostgreSQL и pgAdmin
 
 ### 1. Делаем pull образов:
 
