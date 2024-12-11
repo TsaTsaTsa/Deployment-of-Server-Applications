@@ -31,9 +31,9 @@ kubectl apply -f ingress.yml
 PgAdmin будет доступен по адресу [http://pgadmin.local](http://pgadmin.local)
 
 5. Для добавления базы данных в PgAdmin выполните следующие шаги:
+
    - Перейдите в **Object -> Register -> Server... -> Connection**.
    - В поле **Host name** укажите IP-адрес Minikube (получить его можно с помощью команды `minikube ip`).
    - В поле **Port** укажите `31000`.
    - В поле **Username** укажите `lena`.
    - В поле **Password** укажите `1234`.
-```
