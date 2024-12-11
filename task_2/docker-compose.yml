@@ -6,7 +6,7 @@ services:
     container_name: postgres_container
     environment:
       POSTGRES_USER: user
-      POSTGRES_PASSWORD: postgres_password
+      POSTGRES_PASSWORD: 1234
       POSTGRES_DB: mydb
     ports:
       - "5432:5432"
@@ -15,7 +15,7 @@ services:
     networks:
       - mynetwork
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "your_user", "-d", "your_db", "-h", "localhost"]
+      test: ["CMD", "pg_isready", "-U", "user", "-d", "mydb", "-h", "localhost"]
       interval: 10s
       retries: 5
       start_period: 30s
