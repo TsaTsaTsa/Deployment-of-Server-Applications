@@ -1,18 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: pgadmin-ingress
+  name: pghero-ingress
   annotations:
 spec:
   rules:
-    - host: pgadmin.local
+    - host: pghero.local
       http:
         paths:        
           - path: "/"
             pathType: Prefix
             backend:
               service:
-                name: pgadmin-service
+                name: pghero-service
                 port:
-                  number: 80
-
+                  number: 5000

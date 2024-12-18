@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pgadmin
+  name: pgadmin-deployment
   labels:
     app: pgadmin
 spec:
@@ -24,29 +24,17 @@ spec:
         envFrom:
         - secretRef:
             name: pgadmin-secret
-        startupProbe:
+        livenessProbe:
           httpGet:
             path: /login
             port: 80
-          periodSeconds: 20         
-          failureThreshold: 5  
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 80
+          initialDelaySeconds: 30
           periodSeconds: 10
           failureThreshold: 3
         readinessProbe:
           httpGet:
-            path: /
+            path: /login
             port: 80
+          initialDelaySeconds: 10
           periodSeconds: 5
           failureThreshold: 3
-        volumeMounts:
-          - name: pgadmin-servers
-            mountPath: /pgadmin4/servers.json
-            subPath: servers.json
-      volumes:
-       - name: pgadmin-servers
-         configMap:
-           name: pgadmin-config

@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: postgresql-config
-  labels:
-    app: postgres
-data:
-  POSTGRES_DB: "mydb"
-  POSTGRES_USER: "lena"

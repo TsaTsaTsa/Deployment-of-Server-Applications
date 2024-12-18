@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pghero
+  labels: 
+    app: pghero
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pghero
+  template:
+    metadata:
+      labels:
+        app: pghero
+    spec:
+      containers:
+      - name: pghero
+        image: pg-hero-get
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000
+        envFrom:
+          - configMapRef: 
+              name: pghero-config
+          - secretRef:
+              name: pghero-secret

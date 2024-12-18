@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pghero-config
+data:
+  DB_HOST: "pg-postgres-service"
+  DB_PORT: "5432"
+  DB_USER: "postgres"
+  DB_NAME: "postgres"
+  TABLE_NAME: "my"
+  
